@@ -1,0 +1,22 @@
+<div class="container">  
+    <label>Filter by Year:</label>
+    <input type="text" [(ngModel)]="filterYear" (input)="filterByYear()" />
+    <table class="table table-striped">  
+      <thead>  
+          <tr>  
+            <th>Mission Name</th>  
+            <th>Launch Year</th>  
+            <th>Details</th>  
+            <th>Patch</th>  
+          </tr>  
+      </thead>  
+      <tbody>  
+        <tr *ngFor="let launch of launches" (click)="selectMission(launch)">
+            <td>{{ launch.mission_name }}</td>
+            <td>{{ launch.launch_year }}</td>
+            <td>{{ launch.details }}</td>
+            <td><img [src]="launch.links.mission_patch_small" alt="{{ launch.mission_name }} Patch"></td>
+        </tr>  
+      </tbody>  
+    </table>  
+  </div>
